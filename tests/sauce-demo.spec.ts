@@ -8,7 +8,7 @@ test('TC-001 - Complete shopping workflow from login to logout', async ({ page, 
   await loginPage.goto();
   await loginPage.login(credentials.valid.username, credentials.valid.password);
   await inventoryPage.expectVisible();
-  await expect(page.locator(inventoryProductsLocator).first()).toBeVisible();
+  await inventoryPage.expectProductsDisplayed();
 
   const productName = await inventoryPage.addFirstProductToCart();
   await inventoryPage.goToCart();
