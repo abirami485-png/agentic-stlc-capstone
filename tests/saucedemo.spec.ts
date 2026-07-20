@@ -40,7 +40,7 @@ test.describe('SauceDemo end-to-end flows', () => {
     await inventoryPage.addFirstProductToCart();
     await inventoryPage.openCart();
     await cartPage.proceedToCheckout();
-    await expect(page).toHaveURL(/checkout-step-one/);
+    await expect(page).toHaveURL(/checkout-step-one\.html/);
   });
 
   test('TC-006 - Prevent checkout continuation when mandatory customer information is missing', async ({ loginPage, inventoryPage, cartPage, checkoutInformationPage }) => {
