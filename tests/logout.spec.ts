@@ -7,5 +7,5 @@ test('TC-007 - Log out successfully and return to the Login page', async ({ logi
   await menuComponent.open();
   await menuComponent.logout();
   await loginPage.expectLoginFormVisible();
-  await expect(page).toHaveURL('/');
+  await expect(page).toHaveURL(/https:\/\/www\.saucedemo\.com\/$/);
 });
