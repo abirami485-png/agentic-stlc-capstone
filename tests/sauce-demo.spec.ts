@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures/test-fixtures';
 import { credentials } from '../test-data/credentials';
 import { customerInfo } from '../test-data/customer';
 
-const inventoryProductsLocator = '.inventory_item';
+
 
 test('TC-001 - Complete shopping workflow from login to logout', async ({ page, loginPage, inventoryPage, cartPage, checkoutPage }) => {
   await loginPage.goto();
