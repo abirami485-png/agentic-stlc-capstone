@@ -8,7 +8,7 @@ export class CheckoutPage extends BasePage {
   private readonly continueButton = this.page.getByRole('button', { name: 'Continue' });
   private readonly finishButton = this.page.getByRole('button', { name: 'Finish' });
   private readonly completeHeader = this.page.getByRole('heading', { name: 'Thank you for your order!' });
-  private readonly errorMessage = this.page.getByRole('alert');
+  private readonly errorMessage = this.page.locator('[data-test="error"]');
 
   constructor(page: Page) {
     super(page);
