@@ -7,10 +7,10 @@ const productSlugMap: Record<string, string> = {
   'Test.allTheThings() T-Shirt (Red)': 'test.allthethings()-t-shirt-(red)'
 };
 
-export function productTestId(action: 'add-to-cart' | 'remove-from-cart', productName: string): string {
+export function productActionSelector(action: 'add-to-cart' | 'remove-from-cart', productName: string): string {
   const slug = productSlugMap[productName];
   if (!slug) {
     throw new Error(`Unsupported product name: ${productName}`);
   }
-  return `${action}-${slug}`;
+  return `#${action}-${slug}`;
 }
