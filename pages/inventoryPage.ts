@@ -39,6 +39,6 @@ export class InventoryPage extends BasePage {
   }
 
   async expectNoInventoryContent(): Promise<void> {
-    await expect(this.inventoryContainer).toBeHidden();
+    await expect(this.inventoryContainer).toHaveCount(0);
   }
 }
