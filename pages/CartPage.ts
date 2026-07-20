@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { productTestId } from '../utils/selectors';
+import { productActionSelector } from '../utils/selectors';
 
 export class CartPage {
   readonly checkoutButton: Locator;
@@ -12,11 +12,11 @@ export class CartPage {
 
   async expectProductInCart(productName: string): Promise<void> {
     await expect(this.page.getByText(productName, { exact: true })).toBeVisible();
-    await expect(this.page.getByTestId(productTestId('remove-from-cart', productName))).toBeVisible();
+    await expect(this.page.locator(productActionSelector('remove-from-cart', productName))).toBeVisible();
   }
 
   async removeProduct(productName: string): Promise<void> {
-    await this.page.getByTestId(productTestId('remove-from-cart', productName)).click();
+    await this.page.locator(productActionSelector('remove-from-cart', productName)).click();
   }
 
   async goToCheckout(): Promise<void> {
