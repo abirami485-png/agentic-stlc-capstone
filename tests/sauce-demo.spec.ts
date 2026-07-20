@@ -1,4 +1,4 @@
-import { test, expect, env } from '../fixtures/test-fixtures';
+import { test, expect } from '../fixtures/test-fixtures';
 import { testData } from '../utils/test-data';
 
 test('TC-001 Valid user logs in, adds a product, views cart, and completes checkout', async ({
