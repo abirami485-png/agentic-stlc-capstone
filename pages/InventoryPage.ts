@@ -25,6 +25,6 @@ export class InventoryPage {
   }
 
   async expectProductsDisplayed(): Promise<void> {
-    await expect(this.page.locator('.inventory_item')).toHaveCountGreaterThan(0);
+    await expect(this.page.locator('.inventory_item')).toHaveCount(6);
   }
 }
