@@ -5,7 +5,7 @@ export class LoginPage extends BasePage {
   private readonly usernameInput = this.page.getByPlaceholder('Username');
   private readonly passwordInput = this.page.getByPlaceholder('Password');
   private readonly loginButton = this.page.getByRole('button', { name: 'Login' });
-  private readonly errorMessage = this.page.getByRole('alert');
+  private readonly errorMessage = this.page.locator('[data-test="error"]');
 
   constructor(page: Page) {
     super(page);
