@@ -15,7 +15,7 @@ test('TC-001 Valid user logs in, adds a product, views cart, and completes check
 
   await inventoryPage.expectLoaded();
   await inventoryPage.addProductToCart(testData['TC-001'].productName);
-  await expect(inventoryPage.cartLink).toHaveText('1');
+  await expect(inventoryPage.cartBadge).toHaveText('1');
 
   await inventoryPage.openCart();
   await cartPage.expectProductVisible(testData['TC-001'].productName);
