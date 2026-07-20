@@ -11,6 +11,7 @@ export default defineConfig({
   timeout: env.timeout,
   use: {
     baseURL: env.baseUrl,
+    headless: env.headless,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure'
