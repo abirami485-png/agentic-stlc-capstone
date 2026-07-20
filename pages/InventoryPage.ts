@@ -27,6 +27,10 @@ export class InventoryPage {
     await expect(this.cartBadge).toHaveText(String(count));
   }
 
+  async expectCartBadgeHidden(): Promise<void> {
+    await expect(this.cartBadge).toHaveCount(0);
+  }
+
   async openCart(): Promise<void> {
     await this.cartLink.click();
   }
