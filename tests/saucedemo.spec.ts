@@ -7,15 +7,16 @@ test.describe('SauceDemo end-to-end flows', () => {
     await page.goto(env.baseURL);
   });
 
-  test('TC-001 - Log in with valid credentials and access the Inventory page', async ({ loginPage, inventoryPage }) => {
+  test('TC-001 - Log in with valid credentials and access the Inventory page', async ({ loginPage, inventoryPage, page }) => {
     await loginPage.login(testData.validUser.username, testData.validUser.password);
+    await expect(page).toHaveURL(/inventory\.html/);
     await inventoryPage.expectLoaded();
-    await expect(testData.validUser.username).toBeDefined();
   });
 
-  test('TC-002 - Show an error message for invalid login credentials', async ({ loginPage }) => {
+  test('TC-002 - Show an error message for invalid login credentials', async ({ loginPage, page }) => {
     await loginPage.login(testData.invalidUser.username, testData.invalidUser.password);
     await loginPage.expectErrorMessageVisible();
+    await expect(page).toHaveURL(/saucedemo\.com\/?$/);
   });
 
   test('TC-003 - Add a product to the cart and remove it from the Inventory page', async ({ loginPage, inventoryPage }) => {
@@ -24,7 +25,7 @@ test.describe('SauceDemo end-to-end flows', () => {
     await inventoryPage.addFirstProductToCart();
     await inventoryPage.expectCartBadgeCount(1);
     await inventoryPage.removeFirstProductFromCart();
-    await expect(inventoryPage).toBeDefined();
+    await inventoryPage.expectCartBadgeHidden();
   });
 
   test('TC-004 - View selected products in the shopping cart', async ({ loginPage, inventoryPage, cartPage }) => {
