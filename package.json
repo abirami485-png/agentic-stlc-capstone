@@ -1,0 +1,17 @@
+{
+  "name": "agentic-stlc-capstone",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.46.0",
+    "@types/node": "22.10.2",
+    "playwright": "1.46.0",
+    "typescript": "5.6.3"
+  }
+}
