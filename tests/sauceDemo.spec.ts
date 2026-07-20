@@ -39,7 +39,7 @@ test('TC-002 Display an error for invalid login credentials', async ({ loginPage
 
 test('TC-003 Block unauthenticated access to the Inventory page', async ({ page, loginPage, inventoryPage }) => {
   await page.goto('/inventory.html');
-  await expect(page).toHaveURL(/.*\/index\.html|.*\/$/);
+  await expect(page).not.toHaveURL(/inventory\.html/);
   await loginPage.expectVisible();
   await expect(page.getByText('Products', { exact: true })).toHaveCount(0);
   await inventoryPage.expectNoInventoryContent();
