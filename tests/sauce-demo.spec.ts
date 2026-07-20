@@ -6,14 +6,14 @@ test('TC-001 - Log in with valid credentials and access the Inventory page', asy
   await loginPage.login(sauceDemoData.validLogin.username, sauceDemoData.validLogin.password);
   await inventoryPage.expectLoaded();
   await inventoryPage.expectProductVisible(sauceDemoData.productName);
-  await expect(page).toHaveURL(/inventory.html/);
+  await expect(page).toHaveURL(/inventory\.html/);
 });
 
 test('TC-002 - Display an error for invalid login credentials', async ({ page, loginPage }) => {
   await loginPage.goto();
   await loginPage.login(sauceDemoData.invalidLogin.username, sauceDemoData.invalidLogin.password);
   await loginPage.expectErrorMessage('Username and password do not match any user in this service');
-  await expect(page).toHaveURL(/\//);
+  await expect(page).toHaveURL(/\/$/);
 });
 
 test('TC-003 - Block unauthenticated access to the Inventory page', async ({ page }) => {
@@ -51,7 +51,7 @@ test('TC-005 - Complete purchase checkout successfully and log out', async ({ pa
   await checkoutPage.finish();
   await checkoutPage.expectComplete();
   await inventoryPage.logout();
-  await expect(page).toHaveURL(/\//);
+  await expect(page).toHaveURL(/\/$/);
 });
 
 test('TC-006 - Prevent checkout when mandatory customer information is missing', async ({ loginPage, inventoryPage, cartPage, checkoutPage }) => {
