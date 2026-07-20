@@ -1,0 +1,22 @@
+{
+  "TC-001": {
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "productName": "Sauce Labs Backpack",
+    "firstName": "John",
+    "lastName": "Doe",
+    "postalCode": "12345"
+  },
+  "TC-002": {
+    "username": "invalid_user",
+    "password": "invalid_password"
+  },
+  "TC-004": {
+    "productName": "Sauce Labs Backpack"
+  },
+  "TC-005": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "postalCode": ""
+  }
+}
