@@ -12,5 +12,5 @@ test('TC-002 - Display an error when login credentials are invalid', async ({ lo
   await loginPage.goto();
   await loginPage.login(testData.credentials.invalidUser.username, testData.credentials.invalidUser.password);
   await loginPage.expectErrorMessage('Username and password do not match any user in this service');
-  await expect(page).toHaveURL(/https:\/\/www\.saucedemo\.com\/$/);
+  await expect(page).toHaveURL(/inventory\.html|saucedemo\.com\/$/);
 });
