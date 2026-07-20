@@ -3,7 +3,7 @@ import { BasePage } from './basePage';
 
 export class InventoryPage extends BasePage {
   private readonly inventoryContainer = this.page.locator('.inventory_container');
-  private readonly cartLink = this.page.getByTestId('shopping-cart-link');
+  private readonly cartLink = this.page.locator('.shopping_cart_link');
   private readonly menuButton = this.page.getByRole('button', { name: 'Open Menu' });
 
   constructor(page: Page) {
