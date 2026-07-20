@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { productTestId } from '../utils/selectors';
+import { productActionSelector } from '../utils/selectors';
 
 export class InventoryPage {
   readonly inventoryContainer: Locator;
@@ -20,11 +20,11 @@ export class InventoryPage {
   }
 
   async addProductToCart(productName: string): Promise<void> {
-    await this.page.getByTestId(productTestId('add-to-cart', productName)).click();
+    await this.page.locator(productActionSelector('add-to-cart', productName)).click();
   }
 
   async removeProductFromCart(productName: string): Promise<void> {
-    await this.page.getByTestId(productTestId('remove-from-cart', productName)).click();
+    await this.page.locator(productActionSelector('remove-from-cart', productName)).click();
   }
 
   async openCart(): Promise<void> {
