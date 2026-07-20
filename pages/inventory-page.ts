@@ -4,6 +4,7 @@ import { toSlug } from '../utils/selectors';
 
 export class InventoryPage extends BasePage {
   readonly cartLink = this.page.getByRole('link', { name: /shopping cart/i });
+  readonly cartBadge = this.page.locator('.shopping_cart_badge');
   readonly menuButton = this.page.getByRole('button', { name: 'Open Menu' });
   readonly logoutLink = this.page.getByRole('link', { name: 'Logout' });
   readonly inventoryItems = this.page.locator('.inventory_item');
