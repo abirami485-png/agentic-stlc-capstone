@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { BasePage } from '@pages/BasePage';
+import { BasePage } from './BasePage';
 
 export class InventoryPage extends BasePage {
   private readonly inventoryContainer = this.page.locator('.inventory_list');
@@ -17,7 +17,7 @@ export class InventoryPage extends BasePage {
   }
 
   async addFirstProductToCart() {
-    await this.page.locator('button').filter({ hasText: 'Add to cart' }).first().click();
+    await this.page.getByRole('button', { name: 'Add to cart' }).first().click();
   }
 
   async openCart() {
