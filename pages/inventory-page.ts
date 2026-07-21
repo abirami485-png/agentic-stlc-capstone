@@ -26,6 +26,7 @@ export class InventoryPage {
   async expectLoaded(): Promise<void> {
     await expect(this.inventoryTitle).toBeVisible();
     await expect(this.inventoryItems.first()).toBeVisible();
+    await expect(this.backpackAddButton).toBeVisible();
   }
 
   async addBackpackToCart(): Promise<void> {
