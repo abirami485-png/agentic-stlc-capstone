@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "types": ["node", "@playwright/test"],
+    "baseUrl": ".",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@fixtures/*": ["fixtures/*"],
+      "@utils/*": ["utils/*"],
+      "@test-data/*": ["test-data/*"]
+    },
+    "outDir": "dist"
+  },
+  "include": ["pages/**/*.ts", "tests/**/*.ts", "fixtures/**/*.ts", "utils/**/*.ts", "test-data/**/*.ts", "playwright.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}
