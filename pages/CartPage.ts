@@ -24,6 +24,6 @@ export class CartPage {
   }
 
   async expectProductNotVisible(productName: string): Promise<void> {
-    await expect(this.page.locator('.cart_item')).not.toContainText(productName);
+    await expect(this.page.locator('.cart_item').filter({ hasText: productName })).toHaveCount(0);
   }
 }
