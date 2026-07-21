@@ -10,7 +10,7 @@ export class CartPage {
     this.page = page;
     this.cartItems = page.locator('.cart_item');
     this.checkoutButton = page.getByRole('button', { name: 'Checkout' });
-    this.removeBackpackButton = page.getByRole('button', { name: 'Remove' }).first();
+    this.removeBackpackButton = page.getByTestId('remove-sauce-labs-backpack');
   }
 
   async expectProductVisible(productName: string): Promise<void> {
