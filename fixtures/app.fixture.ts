@@ -1,0 +1,34 @@
+import { test as base, expect } from '@playwright/test';
+import { LoginPage, InventoryPage, CartPage, CheckoutInformationPage, CheckoutOverviewPage, CheckoutCompletePage } from '../pages';
+
+type AppFixtures = {
+  loginPage: LoginPage;
+  inventoryPage: InventoryPage;
+  cartPage: CartPage;
+  checkoutInformationPage: CheckoutInformationPage;
+  checkoutOverviewPage: CheckoutOverviewPage;
+  checkoutCompletePage: CheckoutCompletePage;
+};
+
+export const test = base.extend<AppFixtures>({
+  loginPage: async ({ page }, use) => {
+    await use(new LoginPage(page));
+  },
+  inventoryPage: async ({ page }, use) => {
+    await use(new InventoryPage(page));
+  },
+  cartPage: async ({ page }, use) => {
+    await use(new CartPage(page));
+  },
+  checkoutInformationPage: async ({ page }, use) => {
+    await use(new CheckoutInformationPage(page));
+  },
+  checkoutOverviewPage: async ({ page }, use) => {
+    await use(new CheckoutOverviewPage(page));
+  },
+  checkoutCompletePage: async ({ page }, use) => {
+    await use(new CheckoutCompletePage(page));
+  },
+});
+
+export { expect };
