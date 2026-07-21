@@ -1,11 +1,11 @@
-import { test as base, expect, Page } from '@playwright/test';
-import { LoginPage } from '@pages/LoginPage';
-import { InventoryPage } from '@pages/InventoryPage';
-import { CartPage } from '@pages/CartPage';
-import { CheckoutInformationPage } from '@pages/CheckoutInformationPage';
-import { CheckoutOverviewPage } from '@pages/CheckoutOverviewPage';
-import { CheckoutCompletePage } from '@pages/CheckoutCompletePage';
-import { env } from '@utils/env';
+import { test as base, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+import { InventoryPage } from '../pages/InventoryPage';
+import { CartPage } from '../pages/CartPage';
+import { CheckoutInformationPage } from '../pages/CheckoutInformationPage';
+import { CheckoutOverviewPage } from '../pages/CheckoutOverviewPage';
+import { CheckoutCompletePage } from '../pages/CheckoutCompletePage';
+import { env } from '../utils/env';
 
 type Fixtures = {
   loginPage: LoginPage;
@@ -37,4 +37,4 @@ export const test = base.extend<Fixtures>({
   }
 });
 
-export { expect, env, Page };
+export { expect, env };
