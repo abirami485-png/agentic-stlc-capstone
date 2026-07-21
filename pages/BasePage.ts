@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { env } from '@utils/env';
+import { env } from '../utils/env';
 
 export class BasePage {
   constructor(protected readonly page: Page) {}
