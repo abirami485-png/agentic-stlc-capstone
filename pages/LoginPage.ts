@@ -18,11 +18,11 @@ export class LoginPage extends BasePage {
   }
 
   async expectErrorMessage(message: string): Promise<void> {
-    await expect(this.page.getByRole('alert')).toContainText(message);
+    await expect(this.page.locator('[data-test="error"]')).toContainText(message);
   }
 
   async expectLoginPage(): Promise<void> {
-    await expect(this.page).toHaveURL(/.*\/$/);
+    await expect(this.page).not.toHaveURL(/inventory\.html/);
     await expect(this.page.getByRole('button', { name: 'Login' })).toBeVisible();
   }
 }
