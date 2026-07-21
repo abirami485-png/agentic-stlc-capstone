@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 
 export class BasePage {
-  constructor(protected readonly page: Page) {}
+  constructor(public readonly page: Page) {}
 
   async open(path = '/'): Promise<void> {
     await this.page.goto(path);
@@ -10,4 +10,7 @@ export class BasePage {
   async currentPath(): Promise<string> {
     return new URL(this.page.url()).pathname;
   }
-}
+
+  async currentPath(): Promise<string> {
+    return new URL(this.page.url()).pathname;
+  }
