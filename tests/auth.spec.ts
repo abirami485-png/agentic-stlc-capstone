@@ -16,6 +16,7 @@ test('TC-002 Invalid credentials display an error message', async ({ page, login
 });
 
 test('TC-003 Unauthenticated user cannot access the Inventory page', async ({ page }) => {
+  await page.context().clearCookies();
   await page.goto('/inventory.html');
   await expectOnLoginPage(page);
   await expect(page).not.toHaveURL(/inventory.html/);
