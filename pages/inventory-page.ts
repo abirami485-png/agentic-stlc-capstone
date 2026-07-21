@@ -25,7 +25,7 @@ export class InventoryPage {
 
   async expectLoaded(): Promise<void> {
     await expect(this.inventoryTitle).toBeVisible();
-    await expect(this.inventoryItems).toHaveCountGreaterThan(0);
+    await expect(this.inventoryItems.first()).toBeVisible();
   }
 
   async addBackpackToCart(): Promise<void> {
