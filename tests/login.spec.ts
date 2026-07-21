@@ -13,7 +13,7 @@ test('TC-002 Invalid credentials display an error message', async ({ loginPage }
   await loginPage.goto();
   await loginPage.login(sauceDemoUsers.invalidUser.username, sauceDemoUsers.invalidUser.password);
 
-  await loginPage.expectLoginError('Username and password do not match');
+  await loginPage.expectLoginError('Username and password do not match any user in this service');
   await expect(loginPage.page).toHaveURL(/\/$/);
 });
 
