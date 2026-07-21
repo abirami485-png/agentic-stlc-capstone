@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { BasePage } from '@pages/BasePage';
+import { BasePage } from './BasePage';
 
 export class CartPage extends BasePage {
   private readonly cartContents = this.page.locator('.cart_contents_container');
