@@ -1,5 +1,5 @@
-import { test, expect, env } from '@fixtures/test-fixtures';
-import { checkoutCustomer, invalidCheckoutCustomer } from '@test-data/test-data';
+import { test, expect, env } from '../fixtures/test-fixtures';
+import { checkoutCustomer, invalidCheckoutCustomer } from '../test-data/test-data';
 
 test('TC-001 - Log in with valid credentials and view the product inventory', async ({ page, loginPage, inventoryPage }) => {
   await loginPage.openLoginPage();
