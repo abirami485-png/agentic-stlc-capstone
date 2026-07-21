@@ -1,5 +1,6 @@
 import { expect, type Page } from '@playwright/test';
 import { BasePage } from './base.page';
+import { toKebabCase } from '../utils/string';
 
 export class CartPage extends BasePage {
   readonly checkoutButton = this.page.getByTestId('checkout');
@@ -13,8 +14,7 @@ export class CartPage extends BasePage {
     await expect(this.checkoutButton).toBeVisible();
   }
 
-  async removeItem(productName: string): Promise<void> {
-    await this.page.getByText(productName, { exact: true }).click();
+    await this.page.getByTestId(`remove-${toKebabCase(productName)}`).click();
     await this.page.getByTestId(`remove-${productName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`).click();
   }
 
@@ -28,5 +28,9 @@ export class CartPage extends BasePage {
 
   async expectItemVisible(productName: string): Promise<void> {
     await expect(this.page.getByText(productName, { exact: true })).toBeVisible();
+
+  async expectItemNotVisible(productName: string): Promise<void> {
+    await expect(this.page.getByText(productName, { exact: true })).toHaveCount(0);
+  }
   }
 }
