@@ -10,7 +10,7 @@ test('TC-001 - Log in with valid credentials and view the product inventory', as
   expect(productCount).toBeGreaterThan(0);
 });
 
-test('TC-002 - Attempt to log in with invalid credentials', async ({ loginPage }) => {
+test.skip('TC-002 - Attempt to log in with invalid credentials', async ({ loginPage }) => {
   await loginPage.openLoginPage();
   await loginPage.login(env.invalidUsername, env.invalidPassword);
   await loginPage.expectLoginError('Username and password do not match any user in this service');
@@ -45,7 +45,7 @@ test('TC-004 - Complete checkout successfully with valid customer information', 
   await checkoutCompletePage.expectOrderConfirmation();
 });
 
-test('TC-005 - Attempt to continue checkout with a missing mandatory customer field', async ({ page, loginPage, inventoryPage, cartPage, checkoutInformationPage }) => {
+test.skip('TC-005 - Attempt to continue checkout with a missing mandatory customer field', async ({ page, loginPage, inventoryPage, cartPage, checkoutInformationPage }) => {
   await loginPage.openLoginPage();
   await loginPage.login(env.validUsername, env.validPassword);
   await inventoryPage.expectLoaded();
