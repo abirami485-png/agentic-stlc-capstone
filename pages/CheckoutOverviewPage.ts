@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { BasePage } from '@pages/BasePage';
+import { BasePage } from './BasePage';
 
 export class CheckoutOverviewPage extends BasePage {
   private readonly finishButton = this.page.getByRole('button', { name: 'Finish' });
