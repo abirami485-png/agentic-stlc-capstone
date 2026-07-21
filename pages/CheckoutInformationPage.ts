@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { BasePage } from '@pages/BasePage';
+import { BasePage } from './BasePage';
 
 export class CheckoutInformationPage extends BasePage {
   private readonly firstNameInput = this.page.getByPlaceholder('First Name');
