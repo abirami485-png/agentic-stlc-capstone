@@ -16,7 +16,7 @@ test('TC-005: Prevent checkout when mandatory customer information is missing', 
   await checkoutInformationPage.expectLoaded();
   await checkoutInformationPage.submitCustomerInformation(
     sauceDemoTestData.emptyCustomer.firstName,
-    sauceDemoTestData.emptyCustomer.lastName,
+  await checkoutInformationPage.expectValidationMessage();
     sauceDemoTestData.emptyCustomer.postalCode,
   );
 
