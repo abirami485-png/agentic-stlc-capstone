@@ -1,5 +1,5 @@
 import { test, expect } from '../fixtures/test-fixtures';
-import { checkoutCustomer, sauceDemoProducts, sauceDemoUsers } from '../test-data/sauce-demo-data';
+import { checkoutCustomer, sauceDemoUsers } from '../test-data/sauce-demo-data';
 
 test('TC-005 User completes checkout successfully with mandatory customer information', async ({ loginPage, inventoryPage, cartPage, checkoutPage }) => {
   await loginPage.goto();
@@ -33,7 +33,7 @@ test('TC-006 Checkout does not continue when a mandatory customer field is missi
   );
   await checkoutPage.continue();
 
-  await expect(checkoutPage.errorMessage).toBeVisible();
+  await expect(checkoutPage.errorMessage).toContainText('Postal Code is required');
   await expect(checkoutPage.page).toHaveURL(/checkout-step-one\.html/);
 });
 
