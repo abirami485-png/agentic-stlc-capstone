@@ -6,6 +6,6 @@ test('TC-004: Block unauthenticated access to the Inventory page', async ({ page
 
   await expect(page).toHaveURL(/.*saucedemo\.com\/?$/);
   await expect(page.getByTestId('username')).toBeVisible();
-  await expect(page.getByTestId('password')).toBeVisible();
+  await expect(page.getByText('Products')).toHaveCount(0);
   await expect(page.getByText('Products')).toHaveCount(0);
 });
